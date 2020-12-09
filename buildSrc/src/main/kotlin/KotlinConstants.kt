@@ -5,6 +5,8 @@
  */
 
 //全局常量
+
+
 object KotlinConstants {
 
     //Gradle 版本

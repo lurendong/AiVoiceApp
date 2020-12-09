@@ -8,7 +8,7 @@ plugins{
     kotlin("android")
     kotlin("android.extensions")
     id("kotlin-android")
-
+    kotlin("kapt")
 }
 android {
     compileSdkVersion (AppConfig.compileSdkVersion)
@@ -23,6 +23,12 @@ android {
         versionName=AppConfig.versionName
 
         consumerProguardFiles ("consumer-rules.pro")
+        //ARouter
+        kapt {
+           arguments {
+                arg("AROUTER_MODULE_NAME", project.name)
+            }
+        }
     }
 
     buildTypes {
@@ -52,5 +58,6 @@ dependencies {
     testImplementation ("junit:junit:4.12")
     androidTestImplementation ("androidx.test.ext:junit:1.1.2")
     androidTestImplementation ("androidx.test.espresso:espresso-core:3.3.0")
-
+    //运行时注解
+    kapt(DependenciesConfig.AROUTER_COMPILER)
 }
