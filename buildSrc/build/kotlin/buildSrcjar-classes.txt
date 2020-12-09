@@ -1,0 +1,1 @@
+G:\work_space\android\AiVoiceApp\buildSrc\build\classes\kotlin\main\AppConfig.class;G:\work_space\android\AiVoiceApp\buildSrc\build\classes\kotlin\main\DependenciesConfig.class;G:\work_space\android\AiVoiceApp\buildSrc\build\classes\kotlin\main\KotlinConstants.class;G:\work_space\android\AiVoiceApp\buildSrc\build\classes\kotlin\main\ModuleConfig.class
