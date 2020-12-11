@@ -8,18 +8,20 @@ import android.content.SharedPreferences
  *  包名 ： com.randol.lib_base.util
  *  文件名 ：SpUtils
  *  创建者 ：LRD
- *  创建时间 ：2020/12/10 21:58
- *  描述 ：sp封装
+ *  创建时间 ：2020/12/11 8:32
+ *  描述 ：对 SharedPreferences 进行封装
  *
  */
 object SpUtils {
-    const val SP_NAME = "Config"
+    private const val SP_NAME = "config"
 
-    private lateinit var sp :SharedPreferences
-    private lateinit var spEditor : SharedPreferences.Editor
+    //对象
+    private lateinit var sp: SharedPreferences
+    private lateinit var spEditor: SharedPreferences.Editor
 
-    fun initUtils(mContext:Context){
-        sp = mContext.getSharedPreferences(SP_NAME,Context.MODE_PRIVATE)
+    //初始化
+    fun initUtils(mContext: Context) {
+        sp = mContext.getSharedPreferences(SP_NAME, Context.MODE_PRIVATE)
         spEditor = sp.edit()
         spEditor.apply()
     }
