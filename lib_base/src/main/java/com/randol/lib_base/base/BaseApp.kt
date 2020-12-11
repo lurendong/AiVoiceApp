@@ -2,6 +2,7 @@ package com.randol.lib_base.base
 
 import android.app.Application
 import com.alibaba.android.arouter.launcher.ARouter
+import com.randol.lib_base.util.SpUtils
 
 /**
  *  项目名 ：AiVoiceApp
@@ -16,5 +17,6 @@ class BaseApp : Application(){
     override fun onCreate() {
         super.onCreate()
         ARouter.init(this)
+        SpUtils.initUtils(this)
     }
 }
