@@ -14,17 +14,25 @@ import org.greenrobot.eventbus.ThreadMode
 
 
 class MainActivity : BaseActivity() {
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-
-        btn_jump_main_app.setOnClickListener {
-
-            ARouterHelper.startActivity(ARouterHelper.PATH_APP_MANAGER)
-
-        }
-
+    override fun getLayoutId(): Int {
+        return R.layout.activity_main
     }
+
+    override fun getTitleText(): String {
+        return getString(R.string.app_name)
+    }
+
+    override fun initView() {
+
+
+        ARouterHelper.startActivity(ARouterHelper.PATH_APP_MANAGER)
+    }
+
+    override fun isShowBack(): Boolean {
+        return false
+    }
+
+
 
     override fun onDestroy() {
         super.onDestroy()
