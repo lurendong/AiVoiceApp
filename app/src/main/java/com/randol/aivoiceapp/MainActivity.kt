@@ -4,6 +4,9 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.randol.lib_base.adapter.CommonAdapter
+import com.randol.lib_base.adapter.CommonViewHolder
 import com.randol.lib_base.base.BaseActivity
 import com.randol.lib_base.event.EventManager
 import com.randol.lib_base.event.MessageEvent
@@ -16,6 +19,8 @@ import org.greenrobot.eventbus.ThreadMode
 
 
 class MainActivity : BaseActivity() {
+    private lateinit var mList: ArrayList<String>
+
     override fun getLayoutId(): Int {
         return R.layout.activity_main
     }
@@ -25,13 +30,26 @@ class MainActivity : BaseActivity() {
     }
 
     override fun initView() {
-        SpUtils.putString("test","testValue")
 
-        val testString = SpUtils.getString("test")
-        testString?.let {
-            L.i(it)
+        mList = ArrayList()
+        for (i in 1..30){
+            mList.add("第${i}个")
         }
-        ARouterHelper.startActivity(ARouterHelper.PATH_APP_MANAGER)
+        content_recyclerView_MainActivity.layoutManager = LinearLayoutManager(this)
+
+        content_recyclerView_MainActivity.adapter = CommonAdapter(mList,object : CommonAdapter.OnBindDataListener<String>{
+            override fun onBindViewHolder(
+                model: String,
+                viewHolder: CommonViewHolder,
+                type: Int,
+                position: Int
+            ) {
+                viewHolder.setText(R.id.text_item,model)
+            }
+            override fun getLayoutId(type: Int): Int {
+                return R.layout.test_item
+            }
+        })
     }
 
     override fun isShowBack(): Boolean {

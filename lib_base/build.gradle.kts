@@ -38,5 +38,6 @@ dependencies {
     api(project(":lib_voice"))
     api(DependenciesConfig.EVENT_BUS)
     api(DependenciesConfig.AROUTER)
+    api(DependenciesConfig.RECYCLERVIEW)
 
 }

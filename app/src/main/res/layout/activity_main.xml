@@ -8,9 +8,9 @@
     android:orientation="vertical">
 
 
-    <Button
-        android:id="@+id/btn_jump_main_app"
+    <androidx.recyclerview.widget.RecyclerView
+
+        android:id="@+id/content_recyclerView_MainActivity"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Button" />
+        android:layout_height="match_parent"/>
 </LinearLayout>
