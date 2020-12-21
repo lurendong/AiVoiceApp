@@ -66,7 +66,7 @@ object DependenciesConfig{
 object ModuleConfig {
 
     //Module是否App
-    var isApp = false
+    var isApp = true
     //包名
     const val MODULE_APP_MANAGER = "com.randol.module_app_manager"
     const val MODULE_CONSTELLATION = "com.randol.module_constellation"
