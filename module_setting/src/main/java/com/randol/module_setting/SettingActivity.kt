@@ -1,10 +1,12 @@
 package com.randol.module_setting
 
-import androidx.appcompat.app.AppCompatActivity
-import android.os.Bundle
+import com.alibaba.android.arouter.facade.annotation.Route
 import com.randol.lib_base.base.BaseActivity
+import com.randol.lib_base.helper.ARouterHelper
 
-class SettingActivity : BaseActivity(){
+
+@Route(path = ARouterHelper.PATH_SETTING)
+class SettingActivity : BaseActivity() {
     override fun getLayoutId(): Int {
         return R.layout.activity_setting
     }
