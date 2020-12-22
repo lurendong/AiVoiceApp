@@ -1,5 +1,6 @@
 package com.randol.aivoiceapp
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
@@ -14,6 +15,7 @@ import com.randol.lib_base.helper.ARouterHelper
 import com.randol.lib_base.util.L
 import com.randol.lib_base.util.SpUtils
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.test_item.*
 import org.greenrobot.eventbus.Subscribe
 import org.greenrobot.eventbus.ThreadMode
 
@@ -30,14 +32,15 @@ class MainActivity : BaseActivity() {
     }
 
     override fun initView() {
-
+        startService(Intent(this,VoiceService::class.java))
+        ARouterHelper.startActivity(ARouterHelper.PATH_DEVELOPER)
         mList = ArrayList()
         for (i in 1..30){
             mList.add("第${i}个")
         }
-        content_recyclerView_MainActivity.layoutManager = LinearLayoutManager(this)
+        rv_app_main.layoutManager = LinearLayoutManager(this)
 
-        content_recyclerView_MainActivity.adapter = CommonAdapter(mList,object : CommonAdapter.OnBindDataListener<String>{
+        rv_app_main.adapter = CommonAdapter(mList,object : CommonAdapter.OnBindDataListener<String>{
             override fun onBindViewHolder(
                 model: String,
                 viewHolder: CommonViewHolder,
@@ -50,6 +53,7 @@ class MainActivity : BaseActivity() {
                 return R.layout.test_item
             }
         })
+
     }
 
     override fun isShowBack(): Boolean {

@@ -1,7 +1,11 @@
 package com.randol.lib_base.base
 
 import android.app.Application
+import android.content.Intent
 import com.alibaba.android.arouter.launcher.ARouter
+import com.randol.lib_base.helper.ARouterHelper
+import com.randol.lib_base.helper.NotificationHelper
+import com.randol.lib_base.service.InitService
 import com.randol.lib_base.util.SpUtils
 
 /**
@@ -13,10 +17,11 @@ import com.randol.lib_base.util.SpUtils
  *  描述 ：BaseApplication类
  *
  */
-class BaseApp : Application(){
+open class BaseApp : Application(){
     override fun onCreate() {
         super.onCreate()
-        ARouter.init(this)
-        SpUtils.initUtils(this)
+        ARouterHelper.initHelper(this)
+        NotificationHelper.initHelper(this)
+        startService(Intent(this,InitService::class.java))
     }
 }
